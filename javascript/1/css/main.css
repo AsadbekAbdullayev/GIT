@@ -1,0 +1,11 @@
+
+body{
+	margin: 0;
+	background-color: #50A1D7;
+}
+.box{
+	display: none;
+}
+.btn-success{
+	width: 250px;
+}
