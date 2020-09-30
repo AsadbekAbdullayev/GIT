@@ -27,20 +27,24 @@
 		   $e = $_POST['email'];
 		   $p = $_POST['password'];
 
-		   $sql="insert into users(username,email,password) values('{$u}','{$e}','{$p}')";
-		   $r=mysqli_query($con,$sql);
-		   if (empty($u)) {
-		   echo "<div class='alert alert-danger' >Ism kiritilmadi</div>";
-		   }if (empty($e)) {
-		   echo "<div class='alert alert-danger' >Email kiritilmadi</div>";		   }
-
-		   if (empty($p)) {
-		   echo "<div class='alert alert-danger' >Parol kiritilmadi</div>";		   }
 		   
+		   if (($u) == '') {
+		   echo "<div class='alert alert-danger mt-2' >Ism kiritilmadi</div>";
+		   die();
+		   }if (($e) == '') {
+		   echo "<div class='alert alert-danger mt-2' >Email kiritilmadi</div>";
+		   die();		   }
+
+		   if (($p) == '') {
+		   echo "<div class='alert alert-danger mt-2' >Parol kiritilmadi</div>";
+		   die();		   }
+		   $sql="insert into users(username,email,password) values('{$u}','{$e}','{$p}')";
+
+		   $r=mysqli_query($con,$sql);
 
 		   if ($r) {
 		   echo "<div class='alert alert-success' >Registratsiya bajarildi</div>";
-
+		   
 		   }
 		   
 		   
@@ -66,3 +70,6 @@
 
 
 </html>
+
+
+
